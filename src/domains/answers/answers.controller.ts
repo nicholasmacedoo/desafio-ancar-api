@@ -9,20 +9,7 @@ import { ApiQuery, ApiTags } from '@nestjs/swagger';
 export class AnswersController {
   constructor(private readonly answersService: AnswersService) {}
 
-  @Post(':idQuizzes/answers')
-  create(@Body() createAnswerDto: CreateAnswerDto) {
-    return this.answersService.create(createAnswerDto);
-  }
-
-  @Get(':idQuizzes/answers')
-  @ApiQuery({ name: 'loadQuestions', required: false, type: Boolean, description: 'O valor "true" (Verdadeiro) ativa o carregamento das perguntas associadas ao questionário.'})
-  @ApiQuery({ name: 'offset', required: false, type: Number, description: 'Deslocamento entre o começo da lista e um dado elemento. Valor default é 0.'})
-  @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Quantidade máxima de resultados da pesquisa a serem retornados. Valor default é 100.'})
-  findAll(
-    @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number = 0, 
-    @Query('limit', new DefaultValuePipe(100), ParseIntPipe) limit: number = 100) {
-    return this.answersService.findAll(offset, limit);
-  }
+  
 
   @Get(':id')
   findOne(@Param('id') id: string) {
