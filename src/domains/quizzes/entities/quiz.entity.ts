@@ -1,5 +1,6 @@
 import { Column, DataType, HasMany, Model, PrimaryKey, Scopes, Table } from "sequelize-typescript";
 import { Question } from "./question.entity";
+import { ApiProperty } from "@nestjs/swagger";
 
 @Scopes(() => ({
     withQuestions: {
@@ -8,6 +9,7 @@ import { Question } from "./question.entity";
 }))
 @Table({ tableName: 'quizzes' })
 export class Quiz extends Model {
+    @ApiProperty()
     @PrimaryKey
     @Column({
         type: DataType.UUID,
@@ -15,12 +17,15 @@ export class Quiz extends Model {
     })
     id: string;
 
+    @ApiProperty()
     @Column
     nome: string;
 
+    @ApiProperty()
     @Column(DataType.TEXT)
     descricao: string;
 
+    @ApiProperty()
     @HasMany(() => Question, {
         onDelete: 'cascade',
         foreignKey: 'quiz_id'

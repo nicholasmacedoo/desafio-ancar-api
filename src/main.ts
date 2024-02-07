@@ -6,9 +6,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
   const config = new DocumentBuilder()
-    .setTitle('Api - Enquetes simplificadas')
+    .setTitle('Api - Questionários simplificadas')
     .setDescription(
-      'Este desefio tem como objetivo implementar um projeto de elaboração de enquetes simplificadas, onde um usuário pode criar sua enquete e associar perguntas e respostas a elas',
+      'Este desefio tem como objetivo implementar um projeto de elaboração de questionários simplificadas, onde um usuário pode criar seu questionário e associar perguntas e respostas a elas',
     )
     .setVersion('1.0')
     .build()

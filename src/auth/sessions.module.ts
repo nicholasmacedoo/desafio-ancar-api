@@ -6,7 +6,7 @@ import { User } from 'src/domains/users/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 
 @Module({
-    imports: [SequelizeModule.forFeature([User]), JwtService],
+    imports: [SequelizeModule.forFeature([User])],
     controllers: [SessionsController],
     providers: [SessionsService]
 })

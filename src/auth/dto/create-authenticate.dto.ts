@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateAuthenticateDto {
     @ApiProperty()
-    email: string;
+    cpf: string;
 
     @ApiProperty()
     senha: string;
