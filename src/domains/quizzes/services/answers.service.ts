@@ -62,11 +62,31 @@ export class AnswersService {
     return `This action returns a #${id} answer`;
   }
 
-  update(id: number, updateAnswerDto: UpdateAnswerDto) {
-    return `This action updates a #${id} answer`;
+  async update(quiz_id: string, updateAnswerDto: UpdateAnswerDto) {
+    const question = await this.questionRepository.findOne({ where: { quiz_id }, attributes: ['id']})
+
+    if(!question) {
+      throw new NotFoundException('Questioário não encontrado.')
+    }
+
+    await this.answerRepository.update(updateAnswerDto, {
+      where: {
+        id: updateAnswerDto.id
+      }
+    })
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} answer`;
+  async remove(quiz_id: string, id: string) {
+    const question = await this.questionRepository.findOne({ where: { quiz_id }, attributes: ['id']})
+
+    if(!question) {
+      throw new NotFoundException('Questioário não encontrado.')
+    }
+    
+    await this.answerRepository.destroy({
+      where: {
+        id,
+      }
+    });
   }
 }

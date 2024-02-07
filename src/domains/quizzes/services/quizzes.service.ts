@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
 import { CreateQuizDto } from '../dto/create-quiz.dto';
 import { UpdateQuizDto } from '../dto/update-quiz.dto';
 import { Quiz } from '../entities/quiz.entity';
-import { InjectModel } from '@nestjs/sequelize';
 import { Question } from '../entities/question.entity';
 
 @Injectable()

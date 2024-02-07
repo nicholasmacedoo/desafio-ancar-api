@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
-import { QuizzesService } from '../services/quizzes.service';
+import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { QuizzesService } from '../services/quizzes.service'; 
 import { CreateQuizDto } from '../dto/create-quiz.dto';
 import { UpdateQuizDto } from '../dto/update-quiz.dto';
-import { ApiOkResponse, ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Quiz } from '../entities/quiz.entity';
 
 @ApiTags('Questionários')
@@ -26,7 +26,7 @@ export class QuizzesController {
   findAll(
     @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number = 0, 
     @Query('limit', new DefaultValuePipe(100), ParseIntPipe) limit: number = 100, 
-    @Query('loadQuestions') loadQuestions?: boolean
+    @Query('loadQuestions') loadQuestions?: boolean 
   ) {
     return this.quizzesService.findAll(offset, limit, loadQuestions);
   }

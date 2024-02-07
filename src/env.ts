@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 export const envSchema = z.object({
-    // SEQUELIZE_DATABASE_DIALECT: z.string()
     SEQUELIZE_DATABASE_HOST: z.string(),
     SEQUELIZE_DATABASE_PORT: z.coerce.number(),
     SEQUELIZE_DATABASE_USERNAME: z.string(),

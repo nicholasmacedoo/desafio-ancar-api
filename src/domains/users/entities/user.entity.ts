@@ -1,9 +1,10 @@
-import { AutoIncrement, Column, DataType, IsUUID, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
-
+import { ApiProperty } from "@nestjs/swagger";
+import { Column, DataType, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
 
 @Table({ tableName: 'users' })
 export class User extends Model {
     
+    @ApiProperty()
     @PrimaryKey
     @Column({
         type: DataType.UUID,
@@ -11,16 +12,14 @@ export class User extends Model {
     })
     id: string;
 
+    @ApiProperty()
     @Column
     nome: string;
-
-    @Unique
-    @Column
-    email: string;
 
     @Column
     password: string
 
+    @ApiProperty()
     @Column
     cpf: string
 }
