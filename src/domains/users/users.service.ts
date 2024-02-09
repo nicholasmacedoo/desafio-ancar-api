@@ -18,7 +18,6 @@ export class UsersService {
 
     const user = await this.userModel.create({
       nome: createUserDto.nome,
-      email: createUserDto.email,
       cpf: createUserDto.cpf,
       password: hashedPassword,
     })
@@ -29,36 +28,22 @@ export class UsersService {
   }
 
   async findAll(offset: number, limit: number) {
-<<<<<<< HEAD
-    const count = await this.userModel.count()
-
-    const results = await this.userModel.findAll({
-=======
 
     const usersResult = await this.userModel.findAndCountAll({
->>>>>>> finished
       offset,
       limit,
       attributes: ['id', 'nome', 'cpf', 'createdAt', 'updatedAt']
     })
     
     const resultSetMedata = {
-<<<<<<< HEAD
-      count,
-=======
       count: usersResult.count,
->>>>>>> finished
       offset,
       limit
     }
 
     return {
       resultSetMedata,
-<<<<<<< HEAD
-      results
-=======
       results: usersResult.rows,
->>>>>>> finished
     }
   }
 

@@ -19,6 +19,7 @@ export class User extends Model {
     @Column
     password: string
 
+    @Unique
     @ApiProperty()
     @Column
     cpf: string

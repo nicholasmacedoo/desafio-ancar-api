@@ -8,12 +8,6 @@ export class CreateUserDto {
   nome: string
 
   @ApiProperty({
-    description: 'Email do usuário',
-    type: String,
-  })
-  email: string
-
-  @ApiProperty({
     description: 'Senha do usuário',
     type: String,
   })
