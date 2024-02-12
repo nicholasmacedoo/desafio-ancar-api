@@ -29,6 +29,13 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Documentação
+Para acessar a documentação da API, por favor, navegue até o diretório correspondente e adicione "/docs" ao final do URL. Esta seção contém a documentação completa, incluindo todas as rotas disponíveis e recursos associados.
+
+Exemplo:
+```
+http://locahost:3333/docs
+```
 
 ### ℹ️ Mudanças no modelo
 
